@@ -30,13 +30,13 @@ const StudentList = ({ record, specialPropIndex }) => {
       <td>{record.allREcords.dateAdmitted}</td>
 
       {/* button section  */}
-      <td>
+      <td className="d-flex justify-content-evenly">
         
         { record.completed === false ?
           
-          <Button className="mx-4 btn btn-success" onClick={() => dispatch(updateStudentRecord(record.id))}>InProgress</Button> :
+          <Button className="btn btn-success " onClick={() => dispatch(updateStudentRecord(record.id))}>InProgress</Button> :
 
-          <Button className="mx-4 btn btn-success" onClick={() => dispatch(updateStudentRecord(record.id))} >Completed</Button>
+          <Button className="btn btn-success" onClick={() => dispatch(updateStudentRecord(record.id))} >Completed</Button>
 
         }
         

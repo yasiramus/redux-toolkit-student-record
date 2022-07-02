@@ -21,7 +21,7 @@ const StudentHome = () => {
             {
                 records.length !== 0 ?
             
-                <Container className='shadow-lg p-4'>
+                <Container className='shadow-lg px-4 pt-4 pb-1 mt-2 mb-4'>
 
                     <Table dark className="table-bordered">
 
