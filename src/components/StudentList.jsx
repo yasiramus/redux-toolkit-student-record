@@ -1,16 +1,20 @@
 import { Button } from "reactstrap";
 
+// importation of action creation from student slice 
 import { deleteStudentRecord,updateStudentRecord } from "../store/slice/StudentsSlice";
 
 import { useDispatch } from 'react-redux';
 
 const StudentList = ({ record, specialPropIndex }) => {
   
+  // concating of first name and last name 
   const fullName = record.allREcords.firstName + " " + record.allREcords.lastName;
 
   const dispatch = useDispatch();
+
   return (
 
+    // table body 
     <tr>
       
       <th scope="row">{specialPropIndex}</th>

@@ -1,9 +1,12 @@
 import { createSlice, nanoid} from "@reduxjs/toolkit";
 
+// action type is the combination of both the name and action creator which is "record/addNewStudent"
+
 const studentSlice = createSlice({
     
     name: "record",
 
+    // this represent the state 
     initialState: {
 
         studentRecord: []
@@ -12,11 +15,13 @@ const studentSlice = createSlice({
 
     reducers: {
         
+        // this represent action creators 
         // adding 
         addNewStudent: (state, action) => {
 
             const record = {
 
+                // using nanoid to generate random strings 
                 id: nanoid(),
 
                 allREcords: action.payload,
@@ -29,6 +34,7 @@ const studentSlice = createSlice({
             
         },
 
+        // this represent action creators 
         // deleting 
         deleteStudentRecord: (state, action) => {
             
@@ -36,6 +42,7 @@ const studentSlice = createSlice({
 
         },
 
+        // this represent action creators 
         // updating 
         updateStudentRecord: (state, action ) => {
 
@@ -52,6 +59,8 @@ const studentSlice = createSlice({
     
 })
 
+// exportation of action creators 
 export const { addNewStudent,deleteStudentRecord,updateStudentRecord } = studentSlice.actions;
 
+// exportation of reducer
 export default studentSlice.reducer;

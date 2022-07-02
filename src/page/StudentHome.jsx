@@ -21,7 +21,6 @@ const StudentHome = () => {
             {
                 records.length !== 0 ?
             
-                <>   
                 <Container className='shadow-lg p-4'>
 
                     <Table dark className="table-bordered">
@@ -48,6 +47,7 @@ const StudentHome = () => {
 
                         </thead>
 
+                            {/* table body  */}
                         <tbody>
                                     
                             {records.map((val, index) => (
@@ -62,8 +62,6 @@ const StudentHome = () => {
                     
                 </Container>
                 
-                </>        
-
                 :( null )
                 
             }  

@@ -1,13 +1,18 @@
-import { Form,Row, Col, FormGroup,Label,Input,Button, Container } from 'reactstrap';
+// importation of component from reactStrap 
+import { Form, Row, Col, FormGroup, Label, Input, Button, Container } from 'reactstrap';
 
+// useState importation 
 import { useState } from 'react';
 
+// importation of add new student action creator from student slice 
 import { addNewStudent } from '../store/slice/StudentsSlice';
 
+// use Dispatch importion 
 import { useDispatch } from 'react-redux';
 
 const StudentForm = () => {
 
+    // all state set 
     const [firstName, setFirstName] = useState("");
 
     const [lastName, setLastName] = useState("");
@@ -41,8 +46,10 @@ const StudentForm = () => {
     
     // console.log(records);
 
+    //dispatch variable for dispatching of action creator 
     const dispatch = useDispatch();
 
+    // adding of records func 
     const addingOfRecords = e => {
 
         e.preventDefault();
@@ -60,8 +67,9 @@ const StudentForm = () => {
 
         setDateAdmitted("");
             
-        setDateCompleted("")   
-    }
+        setDateCompleted("")
+
+    };
 
     return (
       
@@ -77,7 +85,7 @@ const StudentForm = () => {
                             
                             <Label className='fs-6'>First Name</Label>
                             
-                            <Input placeholder="enter first name" type="name" name='firstName' className='shadow-sm p-2' value={firstName} onChange={ (e) => ( setFirstName(e.target.value) )} />
+                            <Input placeholder="enter first name" type="name" className='shadow-sm p-2' value={firstName} onChange={ (e) => ( setFirstName(e.target.value) )} />
                             
                         </FormGroup>
                         
