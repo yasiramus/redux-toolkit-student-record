@@ -1,4 +1,4 @@
-import { createSlice, nanoid} from "@reduxjs/toolkit";
+import { createSlice} from "@reduxjs/toolkit";
 
 // action type is the combination of both the name and action creator which is "record/addNewStudent"
 
@@ -17,22 +17,10 @@ const studentSlice = createSlice({
         
         // this represent action creators 
         // adding 
-        addNewStudent: (state, action) => {
+        // addNewStudent: (state, action) => {
 
-            const record = {
-
-                // using nanoid to generate random strings 
-                id: nanoid(),
-
-                allREcords: action.payload,
-                
-                completed:false
-                
-            }
-
-            state.studentRecord.push(record);
             
-        },
+        // },
 
         // this represent action creators 
         // deleting 
