@@ -1,5 +1,16 @@
-import { createSlice} from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 
+import axios from "axios";
+
+
+export const fetchStudentRecord = createAsyncThunk("studentRecord/studentrecord", () => {
+
+    const response = axios.get("http://localhost:6000/studentrecord")
+
+    const { data } = response;
+console.log(data,'fatc');
+    return data;
+})
 // action type is the combination of both the name and action creator which is "record/addNewStudent"
 
 const studentSlice = createSlice({
@@ -9,7 +20,11 @@ const studentSlice = createSlice({
     // this represent the state 
     initialState: {
 
-        studentRecord: []
+        studentRecord: [],
+
+        loading: false,
+
+        error:""
         
     },
 
@@ -43,6 +58,12 @@ const studentSlice = createSlice({
 
         }
 
+    },
+
+    extraReducers: builder => {
+        
+        builder.addCase(fetchStudentRecord.pending, (state) => state.loading = true)
+        
     }
     
 })

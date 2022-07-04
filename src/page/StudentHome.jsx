@@ -2,13 +2,19 @@ import StudentForm from '../components/StudentForm';
 
 import StudentList from '../components/StudentList';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { Table, Container } from 'reactstrap';
+
+import { fetchStudentRecord } from '../store/slice/StudentsSlice';
 
 const StudentHome = () => {
 
     const records = useSelector((state) => state.recordOfStudents.studentRecord);
+
+    const dispatch = useDispatch();
+
+    dispatch(fetchStudentRecord)
 
     return (
       
