@@ -1,25 +1,38 @@
+// student home page which contain both student form and student list componet
+
+// importation of the student form component from the component folder
 import StudentForm from '../components/StudentForm';
 
+// importation of the student list component from the component folder
 import StudentList from '../components/StudentList';
 
+// importation of useSelector and useDispatch from react-redux liberary
 import { useSelector, useDispatch } from 'react-redux';
 
+// importation of table and Container component from reactstrap 
 import { Table, Container } from 'reactstrap';
 
+// importation of fetchStudentRecord from the store slice folders 
 import { fetchStudentRecord } from '../store/slice/StudentsSlice';
 
+// importof useEffect which will only activate if the values in the list change.
 import { useEffect } from 'react';
 
 const StudentHome = () => {
 
+    // useSelector is a hook to access the redux store's state(data).
     const records = useSelector((state) => state.recordOfStudents.studentRecord);
 
+    // useDispatch been set here 
     const dispatch = useDispatch();
 
+    // useEffect been used here 
     useEffect(() => {
 
+        // dispatch is been used here to dispatch an action 
         dispatch(fetchStudentRecord())
 
+        // passing a dependency array to the useEffect to only render when changes occurs within the store state 
     },[dispatch])
 
     return (
@@ -28,6 +41,7 @@ const StudentHome = () => {
       
             <h1 className="text-center text-capitalize fst-italic my-3" id='customshadow'>Records Of Students</h1>
 
+            {/* StudentForm is been used here  */}
             <StudentForm />
 
             {
@@ -65,6 +79,7 @@ const StudentHome = () => {
                                     
                             {records.map((val, index) => (
                             
+                                // student list component is been used here  
                                 <StudentList record={val} key={index} specialPropIndex={index} /> 
                             
                             ))}
@@ -75,7 +90,7 @@ const StudentHome = () => {
                     
                 </Container>
                 
-                :( null )
+                :  ( null ) //return null if there is no data present
                 
             }  
             

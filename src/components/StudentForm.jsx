@@ -1,3 +1,5 @@
+// studnt form component 
+
 // importation of component from reactStrap 
 import { Form, Row, Col, FormGroup, Label, Input, Button, Container } from 'reactstrap';
 
@@ -7,7 +9,7 @@ import { useState } from 'react';
 // importation of add new student thunk operation from student slice 
 import { addANewStudent } from '../store/slice/StudentsSlice';
 
-// use Dispatch importion 
+// use Dispatch importion for dispatching of actions  
 import { useDispatch } from 'react-redux';
 
 const StudentForm = () => {
@@ -42,7 +44,7 @@ const StudentForm = () => {
 
     }
     
-    //dispatch variable for dispatching  
+    //dispatch variable for dispatching of actions
     const dispatch = useDispatch();
 
     // adding of records func 
@@ -50,6 +52,7 @@ const StudentForm = () => {
 
         e.preventDefault();
         
+        // dispatching of add new student action 
         dispatch(addANewStudent(metaData))
 
         // clearing all input field 
@@ -69,12 +72,16 @@ const StudentForm = () => {
 
     return (
       
+        // main container 
         <Container className='mx-auto'>
             
+            {/* sub container  */}
             <Form className='my-4' onSubmit={addingOfRecords}>
 
+                {/* ist row for the input field which consist of firstname and last name */}
                 <Row>
 
+                    {/* firstname section  */}
                     <Col md={6}>
                         
                         <FormGroup>
@@ -87,6 +94,7 @@ const StudentForm = () => {
                         
                     </Col>
                     
+                    {/* last name section  */}
                     <Col md={6}>
                         
                         <FormGroup>
@@ -101,8 +109,10 @@ const StudentForm = () => {
                     
                 </Row>
 
+                {/* second row for the input field which consist of age and class */}
                 <Row>
 
+                    {/* age section  */}
                     <Col md={6}>
                         
                         <FormGroup>
@@ -115,6 +125,7 @@ const StudentForm = () => {
                         
                     </Col>
 
+                    {/* class section  */}
                     <Col md={6}>
                         
                         <FormGroup>
@@ -129,8 +140,10 @@ const StudentForm = () => {
 
                 </Row>
                 
+                {/* third row for the input field which consist of date admitted and dfate completed */}
                 <Row>
 
+                    {/* date admitted  */}
                     <Col md={6}>
                         
                         <FormGroup>
@@ -143,6 +156,7 @@ const StudentForm = () => {
                         
                     </Col>
 
+                    {/* date completed  */}
                     <Col md={6}>
                         
                         <FormGroup>
@@ -157,12 +171,14 @@ const StudentForm = () => {
 
                 </Row>
 
+                {/* button section  */}
                 <Button className="btn btn-success">Add New Student</Button>
 
             </Form>
-            
+            {/* sub container ends here*/}
+
         </Container>
-        
+        // main container ends here 
     )
     
 };

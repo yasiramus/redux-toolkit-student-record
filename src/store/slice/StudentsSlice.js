@@ -10,7 +10,7 @@ import axios from "axios";
 // createAsyncThunk  returns a promise 
 
 // fetching student record thunk get request
-export const fetchStudentRecord = createAsyncThunk("/fetchingStudentData", async () => {
+export const fetchStudentRecord = createAsyncThunk("fetchingStudentData", async () => {
 
     const response = await axios.get("http://localhost:5050/studentrecord")
 
@@ -21,7 +21,7 @@ export const fetchStudentRecord = createAsyncThunk("/fetchingStudentData", async
 });
 
 // add new student thunk post request 
-export const addANewStudent = createAsyncThunk("/addANewStudent", async (studentData) => {
+export const addANewStudent = createAsyncThunk("addANewStudent", async (studentData) => {
     
     const response = await axios.post("http://localhost:5050/studentrecord", studentData )
 
@@ -32,7 +32,7 @@ export const addANewStudent = createAsyncThunk("/addANewStudent", async (student
 });
 
 // update student record thunk put request 
-export const updateStateOfStudent = createAsyncThunk("/updatestudentdata", async (id) => {
+export const updateStateOfStudent = createAsyncThunk("updatestudentdata", async (id) => {
 
     const response = await axios.put(`http://localhost:5050/studentrecord/${id}`)
 
@@ -43,7 +43,7 @@ export const updateStateOfStudent = createAsyncThunk("/updatestudentdata", async
 });
 
 // delete request thunk delete request 
-export const deleteStudentData = createAsyncThunk("/deletestudentdata", async (id) => {
+export const deleteStudentData = createAsyncThunk("deletestudentdata", async (id) => {
 
     const response = await axios.delete(`http://localhost:5050/studentrecord/${id}`)
 
@@ -100,7 +100,7 @@ const studentSlice = createSlice({
             state.error = action.error.message;
 
         })
-        // fetching of student record begins from here
+        // fetching of student record ends here
 
         // adding of student record begins from here
         // pending state 
