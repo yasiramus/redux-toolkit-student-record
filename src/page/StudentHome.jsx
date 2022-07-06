@@ -8,19 +8,25 @@ import { Table, Container } from 'reactstrap';
 
 import { fetchStudentRecord } from '../store/slice/StudentsSlice';
 
+import { useEffect } from 'react';
+
 const StudentHome = () => {
 
     const records = useSelector((state) => state.recordOfStudents.studentRecord);
 
     const dispatch = useDispatch();
 
-    dispatch(fetchStudentRecord)
+    useEffect(() => {
+
+        dispatch(fetchStudentRecord())
+
+    },[dispatch])
 
     return (
       
         <>
       
-            <h1 className="text-center text-capitalize fst-italic my-3" id='customshadow'>Students Records</h1>
+            <h1 className="text-center text-capitalize fst-italic my-3" id='customshadow'>Records Of Students</h1>
 
             <StudentForm />
 
@@ -35,19 +41,20 @@ const StudentHome = () => {
                         <thead className='text-center'>
 
                             <tr>
-                            <th>Number</th>
+                                    
+                                <th>Number</th>
 
-                            <th>Name</th>
+                                <th>Name</th>
 
-                            <th>Class</th>
+                                <th>Class</th>
 
-                            <th>Age</th>
+                                <th>Age</th>
 
-                            <th>Date Admitted</th>
+                                <th>Date Admitted</th>
 
-                            <th>Date Completed</th> 
+                                <th>Date Completed</th> 
 
-                            <th>Actions</th>
+                                <th>Actions</th>
 
                             </tr>
 

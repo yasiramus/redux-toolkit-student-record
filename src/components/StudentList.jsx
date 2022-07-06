@@ -1,15 +1,16 @@
 import { Button } from "reactstrap";
 
-// importation of action creation from student slice 
-import { deleteStudentRecord,updateStudentRecord } from "../store/slice/StudentsSlice";
+// importation of createasyncthunk crud operations from student slice 
+import { deleteStudentData, updateStateOfStudent } from "../store/slice/StudentsSlice";
 
 import { useDispatch } from 'react-redux';
 
+// the record and special prop index is used as a prop here from the studenthome component  
 const StudentList = ({ record, specialPropIndex }) => {
   
-  // concating of first name and last name 
-  const fullName = record.allREcords.firstName + " " + record.allREcords.lastName;
-
+  //concating both the first and last name 
+  const fullName = record.firstName + " " + record.lastName;
+  
   const dispatch = useDispatch();
 
   return (
@@ -21,28 +22,28 @@ const StudentList = ({ record, specialPropIndex }) => {
 
       <td>{fullName}</td>
 
-      <td>{record.allREcords.studentClass}</td>
+      <td>{record.studentClass}</td> 
 
-      <td>{record.allREcords.age}</td>
+      <td>{record.age}</td>
 
-      <td>{record.allREcords.dateAdmitted}</td>
+      <td>{record.dateAdmitted}</td>
 
-      <td>{record.allREcords.dateAdmitted}</td>
+      <td>{record.dateAdmitted}</td>
 
       {/* button section  */}
       <td className="d-flex justify-content-evenly">
         
         { record.completed === false ?
           
-          <Button className="btn btn-success " onClick={() => dispatch(updateStudentRecord(record.id))}>InProgress</Button> :
+          <Button className="btn btn-success " onClick={() => dispatch(updateStateOfStudent(record.id))}>InProgress</Button> :
 
-          <Button className="btn btn-success" onClick={() => dispatch(updateStudentRecord(record.id))} >Completed</Button>
+          <Button className="btn btn-success" onClick={() => dispatch(updateStateOfStudent(record.id))} >Completed</Button>
 
         }
         
         <Button className="btn btn-danger"
 
-          onClick={() => dispatch(deleteStudentRecord(record.id))}
+          onClick={() => dispatch(deleteStudentData(record.id))}
           
         >Erase</Button>
         
@@ -50,7 +51,8 @@ const StudentList = ({ record, specialPropIndex }) => {
 
     </tr>
 
-  );
+  )
+  
 };
 
 export default StudentList;

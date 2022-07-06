@@ -4,8 +4,8 @@ import { Form, Row, Col, FormGroup, Label, Input, Button, Container } from 'reac
 // useState importation 
 import { useState } from 'react';
 
-// importation of add new student action creator from student slice 
-import { addNewStudent } from '../store/slice/StudentsSlice';
+// importation of add new student thunk operation from student slice 
+import { addANewStudent } from '../store/slice/StudentsSlice';
 
 // use Dispatch importion 
 import { useDispatch } from 'react-redux';
@@ -41,20 +41,16 @@ const StudentForm = () => {
         dateCompleted
 
     }
-
-    // const records = useSelector((state) => state.recordOfStudents.studentRecord);
     
-    // console.log(records);
-
-    //dispatch variable for dispatching of action creator 
+    //dispatch variable for dispatching  
     const dispatch = useDispatch();
 
     // adding of records func 
     const addingOfRecords = e => {
 
         e.preventDefault();
-
-        dispatch(addNewStudent(metaData))
+        
+        dispatch(addANewStudent(metaData))
 
         // clearing all input field 
         setFirstName("");
@@ -85,7 +81,7 @@ const StudentForm = () => {
                             
                             <Label className='fs-6'>First Name</Label>
                             
-                            <Input placeholder="enter first name" type="name" className='shadow-sm p-2' value={firstName} onChange={ (e) => ( setFirstName(e.target.value) )} />
+                            <Input placeholder="enter first name" type="name" name="firstName" className='shadow-sm p-2' value={firstName} onChange={ (e) => ( setFirstName(e.target.value) )} />
                             
                         </FormGroup>
                         
